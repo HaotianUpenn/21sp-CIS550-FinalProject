@@ -20,7 +20,8 @@ function LeaderBoard() {
     };
 
     return (
-        <main>
+        <div style={{ backgroundImage: `url('https://digitalsynopsis.com/wp-content/uploads/2018/06/fifa-world-cup-logos-feature-image.jpg') `}}>
+            <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.9)' }}>
             <PageNavbar active="Leader Board"/>
             <section className="menu section">
                 <div className="title">
@@ -30,7 +31,8 @@ function LeaderBoard() {
                 <Categories categories={categories} filterItems={filterItems} />
                 <CountryView items={CountryItems} />
             </section>
-        </main>
+            </div>
+        </div>
     );
 
 

@@ -108,8 +108,8 @@ export default class Country extends React.Component {
                 <PageNavBar active="Country" />
 
                 <br></br>
-                <div className="container movies-container" style={{ backgroundColor: 'rgba(0, 0, 0, 0)' }}>
-                    <div className="jumbotron">
+                <div className="container movies-container" style={{ backgroundColor: 'rgba(255, 255, 255, 0)' }}>
+                    <div className="jumbotron" style={{ backgroundColor: 'rgba(220, 220, 220, 0.95)' }}>
                         <div className="h1">{this.state.name}</div>
                         <br></br>
                         <img className="teamImg" src={this.state.team} alt={this.state.name} />
@@ -121,8 +121,8 @@ export default class Country extends React.Component {
 
 
 
-                <div className="container movies-container" style={{ backgroundColor: 'rgba(0, 0, 0, 0)' }}>
-                <div className="jumbotron">
+                <div className="container movies-container" style={{ backgroundColor: 'rgba(255, 255, 255, 0)' }}>
+                <div className="jumbotron" style={{ backgroundColor: 'rgba(220, 220, 220, 0.95)' }}>
                     <div className="h5">Latest FIFA World Cup matches</div>
                     <div className="years-container">
                         <div className="years-header">
