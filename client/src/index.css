@@ -297,6 +297,6 @@ p {
   flex: 1 0 50%;
 }
 
-.movies-header .header, .movie .rating, .movie .votes {
-  flex: 1 0 25%;
+.movies-header .header, .movie .rating, .movie .votes .matchYear .matchStage .matchTeam .matchGoals {
+  flex: 1 0 15%;
 }

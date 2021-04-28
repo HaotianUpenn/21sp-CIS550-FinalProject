@@ -1,5 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
+import './dashboard.css';
 import PageNavBar from './PageNavBar';
 import MatchRow from './MatchRow';
 
@@ -11,6 +12,7 @@ export default class Country extends React.Component {
         this.state = {
             name : this.props.name,
             pic : "",
+            team : "",
             intro : "",
             matches : []
         }
@@ -31,6 +33,23 @@ export default class Country extends React.Component {
         }).then(res =>{
             this.setState({
                 pic: res[0]
+            });
+        },err =>{
+            console.log(err);
+        });
+
+        fetch("http://localhost:8081/teamPic/"+this.state.name,
+            {
+                method: 'GET' // The type of HTTP request.
+            }).then(res => {
+            // Convert the response data to a JSON.
+            return res.json();
+        }, err => {
+            // Print the error if there is one.
+            console.log(err);
+        }).then(res =>{
+            this.setState({
+                team: res[0]
             });
         },err =>{
             console.log(err);
@@ -67,7 +86,7 @@ export default class Country extends React.Component {
             // Map each genreObj in genreList to an HTML element:
             // A button which triggers the showMovies function for each genre.
             let matchDivs = MatchList.map((match, i) =>
-                <MatchRow YEAR={match['Year']} STAGE={match['Stage']} HOME_TEAM_NAME={match['Home Team Initials']} HOME_TEAM_GOALS={match['Home Team Goals']} AWAY_TEAM_NAME={match['Away Team Initials']} AWAY_TEAM_GOALS={match['Away Team Goals']} />
+                <MatchRow YEAR={match['Year']} STAGE={match['Stage']} HOME_TEAM_NAME={match['HomeTeamName']} HOME_TEAM_GOALS={match['HomeTeamGoals']} AWAY_TEAM_NAME={match['AwayTeamName']} AWAY_TEAM_GOALS={match['AwayTeamGoals']} />
             );
 
             // Set the state of the genres list to the value returned by the HTTP response from the server.
@@ -84,23 +103,29 @@ export default class Country extends React.Component {
 
     render() {
         return (
-            <div className="Dashboard">
+            <div className="Dashboard" style={{ backgroundImage: `url(${this.state.pic})` }}>
 
                 <PageNavBar active="Country" />
 
                 <br></br>
-                <div className="container movies-container">
+                <div className="container movies-container" style={{ backgroundColor: 'rgba(0, 0, 0, 0)' }}>
                     <div className="jumbotron">
-                        <div className="h5">{this.state.name}</div>
+                        <div className="h1">{this.state.name}</div>
+                        <br></br>
+                        <img className="teamImg" src={this.state.team} alt={this.state.name} />
+                        <br></br>
+                        <br></br>
+                        <div className="h">{this.state.intro}</div>
                     </div>
                 </div>
-                <img src={this.state.pic} alt={this.state.name} />
-                <div className="h5">{this.state.intro}</div>
 
-                <br></br>
+
+
+                <div className="container movies-container" style={{ backgroundColor: 'rgba(0, 0, 0, 0)' }}>
                 <div className="jumbotron">
-                    <div className="movies-container">
-                        <div className="movies-header">
+                    <div className="h5">Latest FIFA World Cup matches</div>
+                    <div className="years-container">
+                        <div className="years-header">
                             <div className="header"><strong>Year</strong></div>
                             <div className="header"><strong>Stage</strong></div>
                             <div className="header"><strong>Home Team Name</strong></div>
@@ -112,6 +137,7 @@ export default class Country extends React.Component {
                             {this.state.matches}
                         </div>
                     </div>
+                </div>
                 </div>
             </div>
         );

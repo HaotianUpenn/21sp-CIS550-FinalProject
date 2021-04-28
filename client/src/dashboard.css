@@ -1,0 +1,40 @@
+.teams-container {
+    /* margin: 10px 0; */
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    /* border-bottom: 1px solid #ddd; */
+}
+
+.teams-container .team {
+    flex: 1 0 15%;
+    margin: 4px 0;
+    padding: 5px;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.teams-container .team:hover {
+    background-color: #ddd;
+}
+
+.years-container .years-header, .results-container .year, .results-container .champion{
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    height: 40px;
+}
+
+.year .Team, .years-header .header-lg {
+    flex: 1 0 30%;
+}
+
+.years-header .header, .year .Year, .year .Matches {
+    flex: 1 0 15%;
+}
+
+.teamImg {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}

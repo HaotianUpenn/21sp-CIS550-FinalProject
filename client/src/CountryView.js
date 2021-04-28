@@ -13,7 +13,7 @@ const CountryView = ({ items }) => {
             <div className='item-info'>
               <header>
                 <h4>{title}</h4>
-                <h4 className='win_time'> {win_time}</h4>
+                <h5 className='win_time'> {win_time}</h5>
               </header>
               <p className='item-text'>{desc}</p>
             </div>

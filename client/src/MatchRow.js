@@ -1,4 +1,5 @@
 import React from 'react';
+import './dashboard.css';
 import 'bootstrap/dist/css/bootstrap.css'
 
 export default class MatchRow extends React.Component {
@@ -10,13 +11,13 @@ export default class MatchRow extends React.Component {
     /* Change the contents (NOT THE STRUCTURE) of the HTML elements to show a movie row. */
     render() {
         return (
-            <div className="movie">
-                <div className="Year">{this.props.YEAR}</div>
-                <div className="Stage">{this.props.STAGE}</div>
-                <div className="Home Team Name">{this.props.HOME_TEAM_NAME}</div>
-                <div className="Home Team Goals">{this.props.HOME_TEAM_GOALS}</div>
-                <div className="Away Team Name">{this.props.AWAY_TEAM_NAME}</div>
-                <div className="Away Team Goals">{this.props.AWAY_TEAM_GOALS}</div>
+            <div className="year">
+                <div className="Matches">{this.props.YEAR}</div>
+                <div className="Matches">{this.props.STAGE}</div>
+                <div className="Matches">{this.props.HOME_TEAM_NAME}</div>
+                <div className="Matches">{this.props.HOME_TEAM_GOALS}</div>
+                <div className="Matches">{this.props.AWAY_TEAM_NAME}</div>
+                <div className="Matches">{this.props.AWAY_TEAM_GOALS}</div>
             </div>
         );
     }

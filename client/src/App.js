@@ -5,6 +5,7 @@ import {
     Switch
 } from 'react-router-dom';
 import LeaderBoard from './LeaderBoard';
+import Matches from './Matches';
 import Country from './Country';
 
 export default class App extends React.Component {
@@ -37,9 +38,9 @@ export default class App extends React.Component {
                         />
                         <Route
                             exact
-                            path="/leaderBoard"
+                            path="/Matches"
                             render={() => (
-                                <LeaderBoard />
+                                <Matches />
                             )}
                         />
                     </Switch>

@@ -23,11 +23,25 @@ app.get('/countryIntro/:name', routes.getCountryIntro);
 app.get('/countryPic/:name', routes.getCountryPic);
 
 
+app.get('/teamPic/:name', routes.getTeamPic);
+
+
 app.get('/countryPlayers/:name', routes.getCountryPlayers);
 
 
 app.get('/countryMatches/:name', routes.getCountryMatches);
 
+
+app.get('/teams', routes.getAllTeams);
+
+
+app.get('/teams/:team', routes.getTeamResult); // Hint: Replace () => {} with the appropriate route handler.
+
+
+app.get('/cups', routes.getWorldCupYear);
+
+
+app.get('/cups/:year', routes.getChampion);
 
 
 app.listen(8081, () => {

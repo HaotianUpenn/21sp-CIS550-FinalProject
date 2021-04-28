@@ -21,7 +21,7 @@ function LeaderBoard() {
 
     return (
         <main>
-            <PageNavbar />
+            <PageNavbar active="Leader Board"/>
             <section className="menu section">
                 <div className="title">
                     <h2>FIFA World Cup Winners</h2>
