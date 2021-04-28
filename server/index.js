@@ -14,36 +14,19 @@ app.use(bodyParser.urlencoded({extended: false}));
 /* ---------------------------------------------------------------- */
 
 
+app.get('/countries', routes.getAllCountries);
 
 
-/* ---- (Dashboard) ---- */
-// The route localhost:8081/genres is registered to the function
-// routes.getAllGenres, specified in routes.js.
-app.get('/genres', routes.getAllGenres);
+app.get('/countryIntro/:name', routes.getCountryIntro);
 
 
-/* ---- Q1b (Dashboard) ---- */
-app.get('/genres/:genre', routes.getTopInGenre); // Hint: Replace () => {} with the appropriate route handler.
+app.get('/countryPic/:name', routes.getCountryPic);
 
 
-
-/* ---- Q2 (Recommendations) ---- */
-app.get('/recommendations/:movieName', routes.getRecs);
+app.get('/countryPlayers/:name', routes.getCountryPlayers);
 
 
-
-
-
-/* ---- (Best Genre) ---- */
-app.get('/decades', routes.getDecades);
-
-
-/* ---- Q3b (Best Genre) ---- */
-app.get('/decades/:decade', routes.bestGenresPerDecade);
-
-
-app.get('/Posters', routes.getRandomMovies);
-
+app.get('/countryMatches/:name', routes.getCountryMatches);
 
 
 
