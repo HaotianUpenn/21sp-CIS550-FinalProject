@@ -10,7 +10,7 @@ Instructions for building it locally:
 3. Type npm install. This will download all the required client-side dependencies, which are specified in package.json into the node_modules/ directory. It may take a while.
 4. cd into the ./server directory.
 5. Type npm install. This will download all the required server-side dependencies.
-6. While in the /server folder, type npm start in the terminal to start the server. By default, it’s running on port 8081. You should see a message in the Terminal saying "Server listening on PORT 8081".
+6. While in the /server folder, type "npm start" in the terminal to start the server. By default, it’s running on port 8081. You should see a message in the Terminal saying "Server listening on PORT 8081". Then in the /client folder, type "npm start", you are expected to see the main pages http://localhost:3000/Leader%20Board. 
 
 # Extra Credit
 1. NoSQL:
