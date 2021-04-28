@@ -6,7 +6,7 @@ const Country = [
     win_time: '5 Championships' ,
     img: './images/item-1.jpeg',
     teampic: 'https://img.fifa.com/image/upload/t_l2/hx0rytamx0ztlmkpd8mz.jpg',
-    desc: `Brazil is the most successful national team in the history of the World Cup, having won five titles, earning second-place, third-place and fourth-place finishes twice each. Brazil is one of the countries besides Argentina, Spain and Germany to win a FIFA World Cup away from its continent (Sweden 1958, Chile 1962, Mexico 1970, USA 1994 and South Korea/Japan 2002). Brazil is the only national team to have played in all FIFA World Cup editions without any absence or need for playoffs. Brazil also has the best overall performance in World Cup history in both proportional and absolute terms with a record of 73 victories in 109 matches played, 124 goal difference, 237 points and only 18 losses. `,
+    desc: `Brazil is the most successful national team in the history of the World Cup, having won five titles, earning second-place, third-place and fourth-place finishes twice each. Brazil is one of the countries besides Argentina, Spain and Germany to win a FIFA World Cup away from its continent. `,
   },
   {
     id: 2,
