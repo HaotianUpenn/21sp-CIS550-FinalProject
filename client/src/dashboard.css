@@ -18,14 +18,14 @@
     background-color: #ddd;
 }
 
-.years-container .years-header, .results-container .year, .results-container .champion{
+.years-container .years-header, .results-container .year, .results-container .champion, .results-container .playerInfo{
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
     height: 40px;
 }
 
-.year .Team, .years-header .header-lg {
+.year .Team, .years-header .header-lg, .playerInfo .Year {
     flex: 1 0 30%;
 }
 
@@ -40,10 +40,3 @@
 }
 
 
-.App {
-
-    /* Full height */
-    height: 100%;
-
-
-}

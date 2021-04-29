@@ -166,7 +166,7 @@ function getCountryMatches(req, res) {
     var query = `
     SELECT Year, Stage, HomeTeamName, HomeTeamGoals, AwayTeamName, AwayTeamGoals
     FROM Matches
-    WHERE \`Home Team Initials\` = '${init}' OR \`Away Team Initials\` = '${init}'
+    WHERE HomeTeamInitials = '${init}' OR AwayTeamInitials = '${init}'
     ORDER BY Year DESC
     LIMIT 10;
   `;
@@ -261,6 +261,30 @@ function getChampion(req, res) {
 };
 
 
+function getPlayers(req, res) {
+    var inputName = req.params.name;
+
+    // use regex, compare no order strings
+    var query = `
+        Select distinct Year
+
+        from WorldCupPlayers
+
+        join Codes on Codes.FIFA = WorldCupPlayers.TeamInitials
+
+        join Matches on Matches.MatchID = WorldCupPlayers.MatchID and Matches.RoundID = WorldCupPlayers.RoundID 
+
+        where WorldCupPlayers.PlayerName like "%${inputName}" and Stage = "Final" and ((HomeTeamGoals > AwayTeamGoals and HomeTeamInitials = TeamInitials) or (HomeTeamGoals < AwayTeamGoals and AwayTeamInitials = TeamInitials));
+  `;
+    connection.query(query, function(err, rows, fields) {
+        if (err) console.log(err);
+        else {
+            // console.log(rows);
+            res.json(rows);
+        }
+    });
+};
+
 // The exported functions, which can be accessed in index.js.
 module.exports = {
     getAllCountries:getAllCountries,
@@ -274,4 +298,5 @@ module.exports = {
     getRecs: getRecs,
     getWorldCupYear: getWorldCupYear,
     getChampion: getChampion,
+    getPlayers: getPlayers,
 }

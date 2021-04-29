@@ -44,6 +44,9 @@ app.get('/cups', routes.getWorldCupYear);
 app.get('/cups/:year', routes.getChampion);
 
 
+app.get('/player/:name', routes.getPlayers);
+
+
 app.listen(8081, () => {
 	console.log(`Server listening on PORT 8081`);
 });

@@ -4,6 +4,7 @@ import './dashboard.css';
 import TeamButton from './TeamButton';
 import PageNavbar from './PageNavBar';
 import DashboardYearRow from './DashboardYearRow';
+import RecommendationsRow from './RecommendationsRow';
 export default class Matches extends React.Component {
     constructor(props) {
         super(props);
@@ -17,12 +18,24 @@ export default class Matches extends React.Component {
 
             selectedDecade: "",
             champion:"",
-            cups: []
+            cups: [],
+
+            playerName: "",
+            playerInfo: []
         };
 
         this.showResult = this.showResult.bind(this);
         this.submitDecade = this.submitDecade.bind(this);
         this.handleChange = this.handleChange.bind(this);
+        this.handlePlayerNameChange = this.handlePlayerNameChange.bind(this);
+        this.submitPlayer = this.submitPlayer.bind(this);
+
+    }
+
+    handlePlayerNameChange(e) {
+        this.setState({
+            playerName: e.target.value
+        });
 
     }
 
@@ -130,6 +143,24 @@ export default class Matches extends React.Component {
         });
     }
 
+    submitPlayer() {
+        fetch("http://localhost:8081/player/" + this.state.playerName,
+            {
+                method: "GET"
+            }).then(res => {
+            return res.json();
+        }, err => {
+            console.log(err);
+        }).then(movieList => {
+            console.log(movieList); //displays your JSON object in the console
+            let movieDivs = movieList.map(movie => (
+                <RecommendationsRow YEAR = {movie.Year} />)
+            );
+
+            this.setState({playerInfo:movieDivs});
+        });
+    }
+
 
     render() {
         return (
@@ -177,6 +208,26 @@ export default class Matches extends React.Component {
                                         {this.state.champion}
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="container recommendations-container">
+                        <div className="jumbotron">
+                            <div className="h5">Enter your favorate player's name to see if he has won a WorldCup</div>
+                            <br></br>
+                            <div className="input-container">
+                                <input type='text' placeholder="For example: ballack" value={this.state.playerName} onChange={this.handlePlayerNameChange} id="movieName" className="movie-input"/>
+                                <button id="submitMovieBtn" className="submit-btn" onClick={this.submitPlayer}>Submit</button>
+                            </div>
+                            <div className="header-container">
+
+                                <div className="headers">
+                                    <div className="header"><strong>Year</strong></div>
+                                </div>
+                            </div>
+                            <div className="results-container" id="results">
+                                {this.state.playerInfo}
                             </div>
                         </div>
                     </div>
